@@ -54,6 +54,8 @@ You will need to run both the FastAPI backend and Streamlit frontend simultaneou
 - **Description**: Accepts a user query and the chat history. Retrieves the top 3 most relevant context chunks from FAISS, injects them into a LangChain conversational prompt, and queries GPT-4o-mini to generate a response.
 - **Input**: JSON payload containing `message` (string) and `history` (list of role/content objects).
 - **Output**: JSON payload with `reply`.
+<img width="1896" height="807" alt="Image" src="https://github.com/user-attachments/assets/655803e7-58fe-4800-bdf9-4f1fa3289de7" />
 
+<img width="1906" height="822" alt="Image" src="https://github.com/user-attachments/assets/96f343f8-3f0c-47d5-bdce-e56d01e864d6" />
 ### `GET /health`
 - **Description**: Simple health check endpoint.
