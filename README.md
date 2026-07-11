@@ -1,13 +1,52 @@
-# AI Customer Support Chatbot
+# 🤖 AI Customer Support Chatbot
 
-An AI-powered customer support chatbot prototype utilizing Retrieval-Augmented Generation (RAG) to answer questions based on company FAQ documents. 
+An AI-powered customer support chatbot built using Retrieval-Augmented Generation (RAG) to provide accurate, context-aware responses from company knowledge documents.
 
-## Features
-- **RAG Implementation**: Upload PDFs to build a vector knowledge base.
-- **Conversational Memory**: Chatbot remembers context from previous turns in the conversation.
-- **Fallback Responses**: Gracefully handles out-of-context or off-topic questions.
-- **Modern UI**: Streamlit frontend for easy interaction.
-- **Robust API**: FastAPI backend powering the logic.
+The system uses LLMs, vector search, and conversational memory to automate customer support interactions. 
+
+## ✨ Features
+
+- 📚 RAG-based knowledge retrieval from PDF documents
+- 🧠 Conversational memory for maintaining chat context
+- 🔍 Semantic search using vector embeddings
+- 🛡️ Fallback handling for unknown queries
+- ⚡ FastAPI backend architecture
+- 🎨 Streamlit interactive frontend
+
+ ## 🏗️ System Architecture
+
+User Query
+    
+    |
+    ↓
+
+Streamlit Frontend
+    
+    |
+    ↓
+
+FastAPI Backend
+    
+    |
+    ↓
+
+Query Embedding
+   
+    |
+    ↓
+
+FAISS Vector Search
+  
+    |
+    ↓
+
+Relevant Context Retrieval
+   
+    |
+    ↓
+
+GPT-4o-mini Response Generation
+
 
 ## Environment Setup
 
@@ -43,17 +82,76 @@ You will need to run both the FastAPI backend and Streamlit frontend simultaneou
    python -m streamlit run frontend/app.py
    ```
 
-## API Flow Documentation
+## 🔌 API Flow Documentation
 
 ### `POST /upload`
-- **Description**: Accepts a PDF file, extracts text, chunks it, generates embeddings using `OpenAIEmbeddings`, and stores it in a local FAISS vector database.
-- **Input**: `multipart/form-data` with a `file` field.
-- **Output**: Success or error message.
+
+**Purpose:**
+Upload PDF documents and create a searchable knowledge base.
+
+**Process:**
+- Extract text
+- Split text into chunks
+- Generate embeddings
+- Store embeddings in the FAISS vector database
+
+**Input:**
+- `multipart/form-data` with a `file` field
+
+**Output:**
+- Success or error message
+
+---
 
 ### `POST /chat`
-- **Description**: Accepts a user query and the chat history. Retrieves the top 3 most relevant context chunks from FAISS, injects them into a LangChain conversational prompt, and queries GPT-4o-mini to generate a response.
-- **Input**: JSON payload containing `message` (string) and `history` (list of role/content objects).
-- **Output**: JSON payload with `reply`.
+
+**Purpose:**
+Generate AI responses based on the retrieved document context.
+
+**Process:**
+- Receive the user query
+- Retrieve the most relevant context chunks
+- Pass the retrieved context to a LangChain prompt
+- Generate a response using GPT-4o-mini
+
+**Input:**
+- JSON payload containing:
+  - `message` (string)
+  - `history` (list of role/content objects)
+
+**Output:**
+- JSON response containing the AI-generated reply
+
+ ## 🛠️ Technology Stack
+
+**Backend**
+- Python
+- FastAPI
+
+**Frontend**
+- Streamlit
+
+**Generative AI**
+- LangChain
+- OpenAI API
+- GPT-4o-mini
+- RAG
+
+**Vector Database**
+- FAISS
+
+**Tools**
+- Git
+- Virtual Environment
+
+## 📌 Future Improvements
+
+- User authentication
+- Multi-company knowledge bases
+- Voice-based customer support
+- Cloud deployment
+- Analytics dashboard
+   
 <img width="1896" height="807" alt="Image" src="https://github.com/user-attachments/assets/655803e7-58fe-4800-bdf9-4f1fa3289de7" />
 
 <img width="1906" height="822" alt="Image" src="https://github.com/user-attachments/assets/96f343f8-3f0c-47d5-bdce-e56d01e864d6" />
