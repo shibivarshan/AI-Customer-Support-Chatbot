@@ -13,41 +13,35 @@ The system uses LLMs, vector search, and conversational memory to automate custo
 - ⚡ FastAPI backend architecture
 - 🎨 Streamlit interactive frontend
 
- ## 🏗️ System Architecture
+## 🏗️ System Architecture
 
+```text
 User Query
-    
-    |
-    ↓
-
+      |
+      ▼
 Streamlit Frontend
-    
-    |
-    ↓
-
+      |
+      ▼
 FastAPI Backend
-    
-    |
-    ↓
-
+      |
+      ▼
 Query Embedding
-   
-    |
-    ↓
-
-FAISS Vector Search
-  
-    |
-    ↓
-
+      |
+      ▼
+FAISS / ChromaDB
+      |
+      ▼
 Relevant Context Retrieval
-   
-    |
-    ↓
-
-GPT-4o-mini Response Generation
-
-
+      |
+      ▼
+LangChain RAG Pipeline
+      |
+      ▼
+LLM (GPT)
+      |
+      ▼
+AI Response
+```
 ## Environment Setup
 
 1. **Clone or Download the Repository**
